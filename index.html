@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SaaSathon — Build. Launch. Sell.</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffae00",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#0a0a0b",
+                        "accent-blue": "#00d2ff",
+                        "accent-purple": "#9d50bb",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            opacity: 0;
+            animation: pageFade 1.4s ease-out forwards;
+        }
+
+        @keyframes pageFade {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 174, 0, 0.15);
+        }
+
+        /* Hero background – slow breathing gradient */
+        .hero-gradient {
+            background: radial-gradient(circle at 30% 70%,
+                    rgba(157, 80, 187, 0.18) 0%,
+                    rgba(0, 210, 255, 0.11) 30%,
+                    rgba(10, 10, 11, 1) 70%);
+            background-size: 180% 180%;
+            animation: gradientBreath 18s ease infinite alternate;
+        }
+
+        @keyframes gradientBreath {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Moving orbs – very slow float */
+        .absolute.top-1\/4.left-1\/2 {
+            animation: floatOrb 24s ease-in-out infinite;
+        }
+
+        @keyframes floatOrb {
+
+            0%,
+            100% {
+                transform: translate(-50%, -10%) scale(1);
+            }
+
+            50% {
+                transform: translate(-40%, -20%) scale(1.05);
+            }
+        }
+
+        /* Fade-in + slide up on load */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeSlideUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-800 {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes fadeSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Pulse on live dot */
+        .animate-ping {
+            animation: ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes ping {
+
+            75%,
+            100% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
+        }
+
+        /* Button hover lift + glow */
+        button.bg-primary,
+        a.bg-primary,
+        button.bg-primary:hover,
+        a.bg-primary:hover {
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        button.bg-primary:hover,
+        a.bg-primary:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgba(255, 174, 0, 0.4);
+        }
+
+        /* Timeline milestone hover shine */
+        .timeline-milestone {
+            transition: all 0.4s ease;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+        }
+
+        .timeline-milestone:hover {
+            background: linear-gradient(135deg,
+                    rgba(255, 174, 0, 0.08) 0%,
+                    transparent 60%);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* Apply to hero content */
+        .hero-content>* {
+            opacity: 0;
+            animation: fadeSlideUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+    <!-- Top Navigation -->
+    <header class="fixed top-0 w-full z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="assets/Lakshya Logo Transparent.png" alt="Lakshya Logo"
+                    class="h-10 w-auto brightness-0 invert">
+                <span class="text-xl font-bold tracking-tight text-slate-100">SaaSathon</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors"
+                    href="#about">About</a>
+                <a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors"
+                    href="#timeline">Timeline</a>
+                <a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors"
+                    href="#prizes">Prizes</a>
+                <a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="#faq">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="register.html"
+                    class="bg-primary hover:bg-primary/90 text-background-dark px-5 py-2 rounded-lg font-bold text-sm transition-all shadow-lg shadow-primary/20">
+                    Register Now
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section
+            class="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden hero-gradient">
+            <div
+                class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent-blue/10 blur-[120px] rounded-full pointer-events-none">
+            </div>
+            <div class="relative z-10 max-w-4xl mx-auto hero-content">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-8 animate-in delay-200">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    36 Hours of Building
+                </div>
+                <h1
+                    class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 animate-in delay-400">
+                    SaaSathon — <span class="text-accent-blue">Build.</span> Launch. Sell.
+                </h1>
+                <p
+                    class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-in delay-600">
+                    The ultimate SaaS-focused hackathon. Stop building features, start building businesses. Validate,
+                    launch, and land your first customer in 36 hours.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in delay-800">
+                    <a href="register.html"
+                        class="w-full sm:w-auto px-8 py-4 bg-primary text-background-dark font-bold rounded-xl text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/30 flex items-center justify-center">
+                        Apply to Participate
+                    </a>
+                    <button
+                        class="w-full sm:w-auto px-8 py-4 glass-panel text-slate-100 font-bold rounded-xl text-lg hover:bg-white/10 transition-colors">
+                        View Rulebook
+                    </button>
+                </div>
+            </div>
+            <!-- Dashboard Mockup/Visual -->
+
+        </section>
+
+        <!-- Countdown Timer -->
+        <section class="py-12 bg-primary/5 border-y border-primary/10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold text-white mb-2">Registration Closes In</h3>
+                        <p class="text-slate-400 font-medium">Secure your spot before the timer hits zero.</p>
+                    </div>
+                    <div class="flex gap-4 md:gap-8 justify-center">
+                        <div class="bg-background-dark/50 border border-white/5 p-4 rounded-xl min-w-[80px]">
+                            <div id="days" class="text-4xl md:text-5xl font-black text-primary">00</div>
+                            <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mt-2">Days</div>
+                        </div>
+                        <div class="bg-background-dark/50 border border-white/5 p-4 rounded-xl min-w-[80px]">
+                            <div id="hours" class="text-4xl md:text-5xl font-black text-primary">00</div>
+                            <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mt-2">Hours
+                            </div>
+                        </div>
+                        <div class="bg-background-dark/50 border border-white/5 p-4 rounded-xl min-w-[80px]">
+                            <div id="minutes" class="text-4xl md:text-5xl font-black text-primary">00</div>
+                            <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mt-2">Mins</div>
+                        </div>
+                        <div class="bg-background-dark/50 border border-white/5 p-4 rounded-xl min-w-[80px]">
+                            <div id="seconds" class="text-4xl md:text-5xl font-black text-primary">00</div>
+                            <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mt-2">Secs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Sponsors -->
+        <section class="py-16 border-y border-white/5 bg-background-dark/50">
+            <div class="max-w-7xl mx-auto px-6">
+                <p class="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-10">Trusted &amp;
+                    Supported by</p>
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale">
+                    <div class="h-8 w-32 bg-slate-400/20 rounded-md flex items-center justify-center text-sm font-bold">
+                        LOGO 01</div>
+                    <div class="h-8 w-32 bg-slate-400/20 rounded-md flex items-center justify-center text-sm font-bold">
+                        LOGO 02</div>
+                    <div class="h-8 w-32 bg-slate-400/20 rounded-md flex items-center justify-center text-sm font-bold">
+                        LOGO 03</div>
+                    <div class="h-8 w-32 bg-slate-400/20 rounded-md flex items-center justify-center text-sm font-bold">
+                        LOGO 04</div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section class="py-24 relative" id="about">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-6">Redefining the Hackathon <br /><span
+                                class="text-primary">Experience.</span></h2>
+                        <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                            Most hackathons end at the demo. SaaSathon ends at the sale. We focus on product-market fit,
+                            sustainable architecture, and actual commercial viability.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="p-4 rounded-xl border border-white/5 bg-white/5">
+                                <span class="material-symbols-outlined text-primary mb-3">verified</span>
+                                <h4 class="font-bold text-slate-100">Market Ready</h4>
+                                <p class="text-sm text-slate-500">Go beyond the MVP to a shippable product.</p>
+                            </div>
+                            <div class="p-4 rounded-xl border border-white/5 bg-white/5">
+                                <span class="material-symbols-outlined text-primary mb-3">query_stats</span>
+                                <h4 class="font-bold text-slate-100">Metric Driven</h4>
+                                <p class="text-sm text-slate-500">Judged on actual user feedback and potential.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="aspect-square glass-panel rounded-2xl p-6 flex flex-col justify-end group hover:bg-primary/5 transition-colors">
+                            <span class="text-5xl font-black text-white group-hover:text-primary mb-2">36h</span>
+                            <span class="text-slate-500 font-medium">Of intense focus</span>
+                        </div>
+                        <div
+                            class="aspect-square glass-panel rounded-2xl p-6 flex flex-col justify-end translate-y-8 group hover:bg-primary/5 transition-colors">
+                            <span class="text-5xl font-black text-white group-hover:text-primary mb-2">50+</span>
+                            <span class="text-slate-500 font-medium">Startups Incubated</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Timeline Section -->
+        <section class="py-24 bg-white/[0.02]" id="timeline">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">The 36-Hour Sprint</h2>
+                    <p class="text-slate-400">A structured journey from zero to one.</p>
+                </div>
+                <div class="relative space-y-12">
+                    <!-- Timeline Line -->
+                    <div
+                        class="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-white/10 to-transparent">
+                    </div>
+                    <!-- Step 1 -->
+                    <div class="relative flex items-start gap-8 timeline-milestone">
+                        <div
+                            class="z-10 w-16 h-16 rounded-full glass-panel border border-primary/40 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary">login</span>
+                        </div>
+                        <div class="pt-3">
+                            <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1 block">Hour 0 -
+                                2</span>
+                            <h3 class="text-xl font-bold text-slate-100 mb-2">Grand Opening &amp; Team Formation</h3>
+                            <p class="text-slate-400">Keynote speech, team matching for solo participants, and theme
+                                reveal.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative flex items-start gap-8 timeline-milestone">
+                        <div
+                            class="z-10 w-16 h-16 rounded-full glass-panel border border-white/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-white">lightbulb</span>
+                        </div>
+                        <div class="pt-3">
+                            <span class="text-slate-500 text-xs font-bold tracking-widest uppercase mb-1 block">Hour 2 -
+                                6</span>
+                            <h3 class="text-xl font-bold text-slate-100 mb-2">Product Pitching &amp; Brainstorming</h3>
+                            <p class="text-slate-400">Validate your idea with mentors. Pivot early, pivot fast. Define
+                                your core SaaS value prop.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative flex items-start gap-8 timeline-milestone">
+                        <div
+                            class="z-10 w-16 h-16 rounded-full glass-panel border border-white/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-white">code</span>
+                        </div>
+                        <div class="pt-3">
+                            <span class="text-slate-500 text-xs font-bold tracking-widest uppercase mb-1 block">Hour 6 -
+                                24</span>
+                            <h3 class="text-xl font-bold text-slate-100 mb-2">The Build Sprint</h3>
+                            <p class="text-slate-400">Heads down building. Focus on the 'SaaS' essentials: Auth,
+                                Billing, and Core Logic.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative flex items-start gap-8 timeline-milestone">
+                        <div
+                            class="z-10 w-16 h-16 rounded-full glass-panel border border-white/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-white">groups</span>
+                        </div>
+                        <div class="pt-3">
+                            <span class="text-slate-500 text-xs font-bold tracking-widest uppercase mb-1 block">Hour 24
+                                - 28</span>
+                            <h3 class="text-xl font-bold text-slate-100 mb-2">Expert Mentorship</h3>
+                            <p class="text-slate-400">1-on-1 sessions with SaaS founders and CTOs to polish your
+                                architecture and pitch.</p>
+                        </div>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="relative flex items-start gap-8 timeline-milestone">
+                        <div
+                            class="z-10 w-16 h-16 rounded-full glass-panel border border-white/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-white">payments</span>
+                        </div>
+                        <div class="pt-3">
+                            <span class="text-slate-500 text-xs font-bold tracking-widest uppercase mb-1 block">Hour 28
+                                - 32</span>
+                            <h3 class="text-xl font-bold text-slate-100 mb-2">Sales Validation</h3>
+                            <p class="text-slate-400">Unique phase: Reach out to potential users for feedback. Get a
+                                'Pre-sign up' or 'Letter of Intent'.</p>
+                        </div>
+                    </div>
+                    <!-- Step 6 -->
+                    <div class="relative flex items-start gap-8 timeline-milestone">
+                        <div
+                            class="z-10 w-16 h-16 rounded-full glass-panel border border-primary/40 bg-primary/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary">emoji_events</span>
+                        </div>
+                        <div class="pt-3">
+                            <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1 block">Hour 32 -
+                                36</span>
+                            <h3 class="text-xl font-bold text-slate-100 mb-2">Final Demo &amp; Pitching</h3>
+                            <p class="text-slate-400">The grand finale. Pitch your SaaS to a panel of VCs and successful
+                                founders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Prize Pool -->
+        <section class="py-24 relative overflow-hidden" id="prizes">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,#ffae0020_0%,transparent_50%)]"></div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="glass-panel rounded-3xl p-12 text-center border-primary/20">
+                    <h2 class="text-3xl font-bold text-slate-100 mb-4">The Prize Pool</h2>
+                    <div class="text-7xl md:text-9xl font-black text-primary mb-6 tracking-tighter">
+                        ₹1,00,000
+                    </div>
+                    <p class="text-xl text-slate-400 max-w-xl mx-auto mb-10">
+                        In cash prizes, plus cloud credits, mentorship opportunities, and direct entry to accelerator
+                        programs.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                        <div class="p-6 bg-white/5 rounded-xl border border-white/5 text-left">
+                            <span class="text-slate-500 text-xs font-bold uppercase mb-2 block">1st Place</span>
+                            <div class="text-2xl font-bold text-white mb-1">₹50,000</div>
+                            <p class="text-sm text-slate-500">Cash + Investor Meeting</p>
+                        </div>
+                        <div class="p-6 bg-white/5 rounded-xl border border-white/5 text-left">
+                            <span class="text-slate-500 text-xs font-bold uppercase mb-2 block">2nd Place</span>
+                            <div class="text-2xl font-bold text-white mb-1">₹30,000</div>
+                            <p class="text-sm text-slate-500">Cash + Cloud Credits</p>
+                        </div>
+                        <div class="p-6 bg-white/5 rounded-xl border border-white/5 text-left">
+                            <span class="text-slate-500 text-xs font-bold uppercase mb-2 block">Best UI/UX</span>
+                            <div class="text-2xl font-bold text-white mb-1">₹20,000</div>
+                            <p class="text-sm text-slate-500">Cash + Design Tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Why Participate Grid -->
+        <section class="py-24 bg-background-dark">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Why SaaSathon?</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">It's not just another hackathon. It's a launchpad for
+                        your career as a founder.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div
+                        class="p-8 glass-panel rounded-2xl border-white/5 group hover:border-primary/30 transition-all">
+                        <span class="material-symbols-outlined text-4xl text-primary mb-6">school</span>
+                        <h3 class="text-xl font-bold text-white mb-3">Learn SaaS GTM</h3>
+                        <p class="text-slate-400">Understand Go-To-Market strategies from experts who have built
+                            million-dollar companies.</p>
+                    </div>
+                    <div
+                        class="p-8 glass-panel rounded-2xl border-white/5 group hover:border-primary/30 transition-all">
+                        <span class="material-symbols-outlined text-4xl text-primary mb-6">hub</span>
+                        <h3 class="text-xl font-bold text-white mb-3">Elite Networking</h3>
+                        <p class="text-slate-400">Connect with founders, investors, and top-tier developers in the
+                            ecosystem.</p>
+                    </div>
+                    <div
+                        class="p-8 glass-panel rounded-2xl border-white/5 group hover:border-primary/30 transition-all">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary mb-6">integration_instructions</span>
+                        <h3 class="text-xl font-bold text-white mb-3">Modern Stack</h3>
+                        <p class="text-slate-400">Access templates and boilerplates for Next.js, Stripe, Supabase, and
+                            more to build fast.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-24 bg-white/[0.02]" id="faq">
+            <div class="max-w-3xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+                    <p class="text-slate-400">Everything you need to know about the SaaSathon.</p>
+                </div>
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="glass-panel rounded-2xl border-white/5 overflow-hidden">
+                        <button class="w-full p-6 text-left flex items-center justify-between group"
+                            onclick="toggleFaq(1)">
+                            <span class="font-bold text-slate-100 group-hover:text-primary transition-colors">Who can
+                                participate?</span>
+                            <span
+                                class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-transform duration-300"
+                                id="icon-1">expand_more</span>
+                        </button>
+                        <div class="px-6 pb-6 text-slate-400 hidden" id="answer-1">
+                            SaaSathon is open to students, developers, designers, and entrepreneurs. Whether you're a
+                            solo builder or part of a team (up to 4 members), you're welcome!
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="glass-panel rounded-2xl border-white/5 overflow-hidden">
+                        <button class="w-full p-6 text-left flex items-center justify-between group"
+                            onclick="toggleFaq(2)">
+                            <span class="font-bold text-slate-100 group-hover:text-primary transition-colors">Is there a
+                                registration fee?</span>
+                            <span
+                                class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-transform duration-300"
+                                id="icon-2">expand_more</span>
+                        </button>
+                        <div class="px-6 pb-6 text-slate-400 hidden" id="answer-2">
+                            Nope! Registration fees is 1000RS per head We also provide food,
+                            drinks, and stickers!
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="glass-panel rounded-2xl border-white/5 overflow-hidden">
+                        <button class="w-full p-6 text-left flex items-center justify-between group"
+                            onclick="toggleFaq(3)">
+                            <span class="font-bold text-slate-100 group-hover:text-primary transition-colors">What if I
+                                don't have a team?</span>
+                            <span
+                                class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-transform duration-300"
+                                id="icon-3">expand_more</span>
+                        </button>
+                        <div class="px-6 pb-6 text-slate-400 hidden" id="answer-3">
+                            No problem! We'll have a team-matching session at the beginning of the event to help you
+                            find like-minded builders.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA -->
+        <section class="py-24 border-t border-white/5 relative overflow-hidden">
+            <div
+                class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 blur-[100px] rounded-full">
+            </div>
+            <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+                <h2 class="text-5xl font-black mb-6">Ready to launch?</h2>
+                <p class="text-xl text-slate-400 mb-10 leading-relaxed">
+                    Applications close on October 15th. Limited slots available for the 2024 cohort.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="register.html"
+                        class="w-full sm:w-auto px-10 py-5 bg-primary text-background-dark font-black rounded-xl text-xl hover:scale-105 transition-transform shadow-2xl shadow-primary/40 flex items-center justify-center">
+                        Secure Your Spot
+                    </a>
+                </div>
+                <p class="mt-8 text-slate-500 text-sm font-medium">₹1000 per member. Pay once you join or form a team.
+                </p>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 bg-background-dark">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3 opacity-60">
+                    <div class="w-6 h-6 bg-slate-100 rounded flex items-center justify-center text-background-dark">
+                        <span class="material-symbols-outlined text-xs font-bold">rocket_launch</span>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight text-slate-100">SaaSathon</span>
+                </div>
+                <div class="flex gap-8 text-sm text-slate-500">
+                    <a class="hover:text-primary" href="#">Twitter</a>
+                    <a class="hover:text-primary" href="#">LinkedIn</a>
+                    <a class="hover:text-primary" href="#">Discord</a>
+                    <a class="hover:text-primary" href="#">Code of Conduct</a>
+                </div>
+                <p class="text-sm text-slate-600">© 2024 SaaSathon. Build the future.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Countdown Timer Logic
+        const countdownDate = new Date();
+        countdownDate.setDate(countdownDate.getDate() + 30); // Set to 30 days from now
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(x);
+                // Handle timer end if needed
+            }
+        }
+
+        const x = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // FAQ Toggle Logic
+        function toggleFaq(id) {
+            const answer = document.getElementById(`answer-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            const isHidden = answer.classList.contains('hidden');
+
+            // Close all other answers (optional, but cleaner)
+            document.querySelectorAll('[id^="answer-"]').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('[id^="icon-"]').forEach(el => el.classList.remove('rotate-180'));
+
+            if (isHidden) {
+                answer.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+    </style>
+</body>
+
+</html>

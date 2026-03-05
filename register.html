@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SaaSathon Registration Form</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffae00",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-image:
+                radial-gradient(circle at 2px 2px, rgba(255, 174, 0, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Top Navigation Bar -->
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-6 md:px-20 py-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+                <div class="flex items-center gap-4">
+                    <img src="assets/Lakshya Logo Transparent.png" alt="Lakshya Logo"
+                        class="h-10 w-auto brightness-0 invert">
+                    <h2 class="text-slate-900 dark:text-slate-100 text-xl font-black leading-tight tracking-tight">
+                        SaaSathon</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-8">
+                    <nav class="hidden md:flex items-center gap-9">
+                        <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors"
+                            href="index.html">Home</a>
+                        <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors"
+                            href="index.html#timeline">Rules</a>
+                        <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors"
+                            href="index.html#prizes">Prizes</a>
+                        <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors"
+                            href="index.html#faq">FAQ</a>
+                    </nav>
+                    <div class="flex items-center gap-4">
+                        <a href="index.html"
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 border border-slate-300 dark:border-slate-700 text-sm font-bold hover:bg-white/5 transition-colors">
+                            Login
+                        </a>
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20"
+                            data-alt="User profile avatar with abstract colors"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSqJxNMUvI9rEFzdqsVdw8Hfeim8L_ZshfQ-EPI64Z43huGi4am_foS9iWd4p9esympex4sH5X6wfVYhunrY154uitCvEalY62KNUEd41ky_attWon7EuASA58eTzUM1DWaJL1kk-wmtXeRIMR4VKr-gL9dWXEHpe6mPMdtNlTIcRPtOPfDIm6eTUF59qtxQgS_ZqiF1tysMeUnpwHL0g_ocHsp9e35XPJixN5NpiXjj-dQCjuOOAsBfllD9rIXW-Tr2T4JZ7CTmc");'>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="flex flex-1 justify-center py-12 px-6">
+                <div class="layout-content-container flex flex-col max-w-3xl flex-1">
+                    <!-- Hero Section -->
+                    <div class="flex flex-col gap-4 mb-12">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest w-fit">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            Registrations Open
+                        </div>
+                        <h1 class="text-slate-900 dark:text-slate-100 text-5xl font-black leading-tight tracking-tight">
+                            SaaSathon <span class="text-primary">2024</span></h1>
+                        <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl">Build the next generation of
+                            Software-as-a-Service in 48 hours. Register your team below to secure your spot in the
+                            arena.</p>
+                    </div>
+                    <form id="registrationForm" class="space-y-16 pb-20">
+                        <!-- Section 1: Participant Information -->
+                        <section>
+                            <div class="flex items-center gap-3 mb-8">
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-background-dark font-bold text-sm">01</span>
+                                <h2 class="text-slate-900 dark:text-slate-100 text-2xl font-bold tracking-tight">
+                                    Participant Information</h2>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="col-span-2">
+                                    <label
+                                        class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">Full
+                                        Name</label>
+                                    <input
+                                        class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                                        placeholder="Alex Rivera" type="text" />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">Email
+                                        Address</label>
+                                    <input
+                                        class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                                        placeholder="alex@university.edu" type="email" />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">College
+                                        Name</label>
+                                    <input
+                                        class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                                        placeholder="Tech Institute of Excellence" type="text" />
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Section 2: Team Details -->
+                        <section>
+                            <div class="flex items-center gap-3 mb-8">
+                                <h2 class="text-slate-900 dark:text-slate-100 text-2xl font-bold tracking-tight">Team
+                                    Details (Optional)</h2>
+                            </div>
+                            <div
+                                class="mb-6 p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-200 text-sm">
+                                <p>You can register individually now and join or form a team later. Each member pays
+                                    ₹1000.</p>
+                            </div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <input type="checkbox" id="joinLater"
+                                    class="rounded border-slate-700 text-primary focus:ring-primary bg-transparent">
+                                <label for="joinLater" class="text-slate-300 font-medium">I'll join/form a team
+                                    later</label>
+                            </div>
+                            <div id="teamFormSection" class="space-y-6 transition-all">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="md:col-span-2">
+                                        <label
+                                            class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">Team
+                                            Name</label>
+                                        <input
+                                            class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                                            placeholder="The SaaS Ninjas" type="text" />
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">Team
+                                            Size</label>
+                                        <select
+                                            class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none appearance-none">
+                                            <option value="1">1 (Solo) - ₹1000</option>
+                                            <option value="2">2 Members - ₹2000</option>
+                                            <option value="3">3 Members - ₹3000</option>
+                                            <option value="4">4 Members - ₹4000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">Member
+                                        Names (comma separated)</label>
+                                    <textarea
+                                        class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
+                                        placeholder="Member 1, Member 2..." rows="2"></textarea>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Section 3: Startup Idea -->
+                        <section
+                            class="p-8 rounded-xl bg-slate-100 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800">
+                            <div class="flex items-center gap-3 mb-8">
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-background-dark font-bold text-sm">03</span>
+                                <h2 class="text-slate-900 dark:text-slate-100 text-2xl font-bold tracking-tight">Startup
+                                    Idea</h2>
+                            </div>
+                            <div class="space-y-6">
+                                <div>
+                                    <label
+                                        class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">Project
+                                        Title</label>
+                                    <input
+                                        class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                                        placeholder="EcoTrack AI" type="text" />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">The
+                                        Problem</label>
+                                    <input
+                                        class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                                        placeholder="What specific pain point are you solving?" type="text" />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">Idea
+                                        Description</label>
+                                    <textarea
+                                        class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
+                                        placeholder="Briefly describe your solution and target audience..."
+                                        rows="4"></textarea>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Section 4: Experience -->
+                        <section>
+                            <div class="flex items-center gap-3 mb-8">
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-background-dark font-bold text-sm">04</span>
+                                <h2 class="text-slate-900 dark:text-slate-100 text-2xl font-bold tracking-tight">
+                                    Experience &amp; Links</h2>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div>
+                                    <label
+                                        class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">GitHub
+                                        Profile</label>
+                                    <div class="relative">
+                                        <span
+                                            class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">github.com/</span>
+                                        <input
+                                            class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 pl-28 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                                            placeholder="username" type="text" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-slate-700 dark:text-slate-300 text-sm font-semibold mb-2">Portfolio
+                                        / LinkedIn</label>
+                                    <input
+                                        class="w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-4 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                                        placeholder="https://..." type="url" />
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-6 rounded-xl bg-primary/5 border border-primary/20">
+                                <div>
+                                    <p class="text-slate-900 dark:text-slate-100 font-bold">Built a SaaS before?</p>
+                                    <p class="text-slate-500 text-sm">Let us know if you have prior experience.</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input class="sr-only peer" type="checkbox" value="" />
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                                    </div>
+                                </label>
+                            </div>
+                        </section>
+                        <!-- Submit Button Area -->
+                        <div class="flex flex-col gap-6 pt-10 border-t border-slate-200 dark:border-slate-800">
+                            <div class="flex items-start gap-3">
+                                <input
+                                    class="mt-1 rounded border-slate-300 dark:border-slate-700 text-primary focus:ring-primary bg-transparent"
+                                    id="terms" type="checkbox" />
+                                <label class="text-sm text-slate-500" for="terms">I agree to the SaaSathon terms of
+                                    service, code of conduct, and privacy policy. I confirm that all information
+                                    provided is accurate.</label>
+                            </div>
+                            <div
+                                class="p-6 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-between">
+                                <span class="text-xl font-bold text-slate-100">Total Registration Fee</span>
+                                <span id="totalFee" class="text-3xl font-black text-primary">₹1000</span>
+                            </div>
+                            <button
+                                class="w-full py-5 px-6 rounded-xl bg-primary hover:bg-primary/90 text-background-dark font-black text-xl shadow-[0_10px_30px_-10px_rgba(255,174,0,0.5)] transition-all transform hover:-translate-y-1 active:translate-y-0 uppercase tracking-wider"
+                                type="submit">
+                                Proceed to Payment & Register
+                            </button>
+                            <p class="text-center text-slate-500 text-sm">Only 12 team slots remaining. Act fast!</p>
+                        </div>
+                    </form>
+                </div>
+            </main>
+            <!-- Footer -->
+            <footer
+                class="border-t border-slate-200 dark:border-slate-800 py-12 px-6 md:px-20 bg-slate-50 dark:bg-black/20">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">terminal</span>
+                        <span class="font-black text-lg tracking-tight">SaaSathon <span
+                                class="text-primary">'24</span></span>
+                    </div>
+                    <div class="flex gap-8 text-sm text-slate-500">
+                        <a class="hover:text-primary" href="#">Twitter</a>
+                        <a class="hover:text-primary" href="#">Discord</a>
+                        <a class="hover:text-primary" href="#">Contact Us</a>
+                    </div>
+                    <p class="text-xs text-slate-500">© 2024 College Entrepreneurship Cell. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script>
+        const teamSizeSelect = document.querySelector('select');
+        const joinLaterCheckbox = document.getElementById('joinLater');
+        const teamFormSection = document.getElementById('teamFormSection');
+        const totalFeeDisplay = document.getElementById('totalFee');
+
+        function updateFee() {
+            if (joinLaterCheckbox.checked) {
+                totalFeeDisplay.innerText = '₹1000';
+            } else {
+                const size = parseInt(teamSizeSelect.value) || 1;
+                totalFeeDisplay.innerText = `₹${size * 1000}`;
+            }
+        }
+
+        joinLaterCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                teamFormSection.classList.add('opacity-40', 'pointer-events-none');
+            } else {
+                teamFormSection.classList.remove('opacity-40', 'pointer-events-none');
+            }
+            updateFee();
+        });
+
+        teamSizeSelect.addEventListener('change', updateFee);
+
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Simple validation check
+            const termsChecked = document.getElementById('terms').checked;
+            if (!termsChecked) {
+                alert('Please agree to the terms and conditions.');
+                return;
+            }
+
+            // In a real app, you'd integrate payment gateway here
+            window.location.href = 'confirm.html';
+        });
+    </script>
+</body>
+
+</html>
