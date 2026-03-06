@@ -1,0 +1,4 @@
+{"error":{"code":"BAD_REQUEST_ERROR","description":"Authentication failed"},"level":"error","message":"Order creation error:","statusCode":401,"timestamp":"2026-03-06T04:40:39.843Z"}
+{"error":{"code":"BAD_REQUEST_ERROR","description":"Authentication failed"},"level":"error","message":"Order creation error:","statusCode":401,"timestamp":"2026-03-06T04:40:43.184Z"}
+{"error":{"code":"BAD_REQUEST_ERROR","description":"Authentication failed"},"level":"error","message":"Order creation error:","statusCode":401,"timestamp":"2026-03-06T04:41:25.877Z"}
+{"error":{"code":"BAD_REQUEST_ERROR","description":"Authentication failed"},"level":"error","message":"Order creation error:","statusCode":401,"timestamp":"2026-03-06T04:41:36.789Z"}

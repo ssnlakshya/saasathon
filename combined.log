@@ -1,0 +1,10 @@
+{"level":"info","message":"Server is running on port 5000 in development mode","timestamp":"2026-03-06T04:35:15.828Z"}
+{"level":"info","message":"Server is running on port 5000 in development mode","timestamp":"2026-03-06T04:38:13.443Z"}
+{"level":"info","message":"Creating order for amount: 1000, currency: INR, receipt: rcpt_b8b00aa2","timestamp":"2026-03-06T04:40:39.607Z"}
+{"error":{"code":"BAD_REQUEST_ERROR","description":"Authentication failed"},"level":"error","message":"Order creation error:","statusCode":401,"timestamp":"2026-03-06T04:40:39.843Z"}
+{"level":"info","message":"Creating order for amount: 1000, currency: INR, receipt: rcpt_8b6e5e8c","timestamp":"2026-03-06T04:40:43.093Z"}
+{"error":{"code":"BAD_REQUEST_ERROR","description":"Authentication failed"},"level":"error","message":"Order creation error:","statusCode":401,"timestamp":"2026-03-06T04:40:43.184Z"}
+{"level":"info","message":"Creating order for amount: 1000, currency: INR, receipt: rcpt_d72e7923","timestamp":"2026-03-06T04:41:25.742Z"}
+{"error":{"code":"BAD_REQUEST_ERROR","description":"Authentication failed"},"level":"error","message":"Order creation error:","statusCode":401,"timestamp":"2026-03-06T04:41:25.877Z"}
+{"level":"info","message":"Creating order for amount: 1000, currency: INR, receipt: rcpt_f57b9f0b","timestamp":"2026-03-06T04:41:33.653Z"}
+{"error":{"code":"BAD_REQUEST_ERROR","description":"Authentication failed"},"level":"error","message":"Order creation error:","statusCode":401,"timestamp":"2026-03-06T04:41:36.789Z"}
