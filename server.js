@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+<<<<<<< HEAD
 const winston = require('winston');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
@@ -25,6 +26,11 @@ if (process.env.NODE_ENV !== 'production') {
         format: winston.format.simple(),
     }));
 }
+=======
+require('dotenv').config();
+
+const registerRoutes = require('./routes/register');
+>>>>>>> 437d5de (feat: implement payment proof registration system with Cloudflare R2 storage)
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -38,6 +44,7 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+<<<<<<< HEAD
 // Rate Limiting
 const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -45,6 +52,10 @@ const apiLimiter = rateLimit({
     message: "Too many requests from this IP, please try again after 15 minutes"
 });
 app.use('/api/', apiLimiter);
+=======
+// Routes
+app.use('/api', registerRoutes);
+>>>>>>> 437d5de (feat: implement payment proof registration system with Cloudflare R2 storage)
 
 // Routes
 app.use('/api', registerRoutes);
@@ -58,13 +69,12 @@ app.get('*', (req, res) => {
 });
 
 const server = app.listen(port, () => {
-    logger.info(`Server is running on port ${port} in ${process.env.NODE_ENV || 'development'} mode`);
+    console.log(`Server is running on port ${port} in ${process.env.NODE_ENV || 'development'} mode`);
 });
 
 // Graceful Shutdown
 process.on('SIGTERM', () => {
-    logger.info('SIGTERM signal received: closing HTTP server');
     server.close(() => {
-        logger.info('HTTP server closed');
+        console.log('HTTP server closed');
     });
 });

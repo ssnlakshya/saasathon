@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Rocket, BadgeCheck, BarChart, LogIn, Lightbulb, Code, Users, CreditCard, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -240,26 +240,58 @@ const LandingPage = () => {
                     <div className="space-y-4">
                         {[
                             { id: 1, q: "Who can participate?", a: "SaaSathon is open to students, developers, designers, and entrepreneurs. Whether you're a solo builder or part of a team (up to 4 members), you're welcome!" },
-                            { id: 2, q: "Is there a registration fee?", a: "Nope! Registration fees is 1000RS per head We also provide food, drinks, and stickers!" },
+                            { id: 2, q: "Is there a registration fee?", a: "Nope! Registration fee is ₹1000 per head. We also provide food, drinks, and stickers!" },
                             { id: 3, q: "What if I don't have a team?", a: "No problem! We'll have a team-matching session at the beginning of the event to help you find like-minded builders." },
                         ].map((faq) => (
-                            <div key={faq.id} className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+                            <div
+                                key={faq.id}
+                                className={`glass-panel rounded-2xl border transition-all duration-500 overflow-hidden ${activeFaq === faq.id
+                                        ? 'border-primary/40 bg-primary/5 shadow-2xl shadow-primary/5'
+                                        : 'border-white/5 bg-white/[0.02]'
+                                    }`}
+                            >
                                 <button
                                     className="w-full p-6 text-left flex items-center justify-between group"
                                     onClick={() => toggleFaq(faq.id)}
                                 >
-                                    <span className="font-bold text-slate-100 group-hover:text-primary transition-colors">{faq.q}</span>
-                                    <ChevronDown className={`text-slate-500 group-hover:text-primary transition-transform duration-300 ${activeFaq === faq.id ? 'rotate-180' : ''}`} />
+                                    <span className={`text-lg font-bold transition-colors duration-300 ${activeFaq === faq.id ? 'text-primary' : 'text-slate-100 group-hover:text-primary'}`}>
+                                        {faq.q}
+                                    </span>
+                                    <ChevronDown
+                                        size={20}
+                                        className={`transition-all duration-500 ease-out ${activeFaq === faq.id
+                                                ? 'rotate-180 text-primary scale-125'
+                                                : 'text-slate-500 group-hover:text-primary'
+                                            }`}
+                                    />
                                 </button>
-                                {activeFaq === faq.id && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: 'auto', opacity: 1 }}
-                                        className="px-6 pb-6 text-slate-400"
-                                    >
-                                        {faq.a}
-                                    </motion.div>
-                                )}
+                                <AnimatePresence>
+                                    {activeFaq === faq.id && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{
+                                                height: 'auto',
+                                                opacity: 1,
+                                                transition: {
+                                                    height: { duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] },
+                                                    opacity: { duration: 0.25, delay: 0.1 }
+                                                }
+                                            }}
+                                            exit={{
+                                                height: 0,
+                                                opacity: 0,
+                                                transition: {
+                                                    height: { duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] },
+                                                    opacity: { duration: 0.2 }
+                                                }
+                                            }}
+                                        >
+                                            <div className="px-6 pb-6 text-slate-400 leading-relaxed max-w-2xl border-t border-white/5 pt-4 mt-2">
+                                                {faq.a}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         ))}
                     </div>
