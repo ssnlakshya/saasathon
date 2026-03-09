@@ -12,6 +12,43 @@
 body {
   @apply bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-sans;
   font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250%;
+  height: 250%;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 174, 0, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(157, 80, 187, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 40% 60%, rgba(0, 210, 255, 0.02) 0%, transparent 60%);
+  z-index: -10;
+  animation: bodyBreathe 35s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes bodyBreathe {
+  0% {
+    transform: translate(-30%, -30%) scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate(0%, 0%) scale(1.15) rotate(2deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-15%, -20%) scale(1.05) rotate(-1deg);
+    opacity: 0.8;
+  }
 }
 
 .glass-panel {
