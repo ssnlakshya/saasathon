@@ -12,13 +12,12 @@ const Footer = () => {
                         </div>
                         <span className="text-lg font-bold tracking-tight text-slate-100">SaaSathon</span>
                     </div>
-                    <div className="flex gap-8 text-sm text-slate-500">
-                        <a className="hover:text-primary" href="#">Twitter</a>
-                        <a className="hover:text-primary" href="#">LinkedIn</a>
-                        <a className="hover:text-primary" href="#">Discord</a>
-                        <a className="hover:text-primary" href="#">Code of Conduct</a>
+                    <div className="flex flex-wrap gap-6 md:gap-8 text-sm text-slate-500">
+                        <a className="hover:text-primary transition-colors" href="https://lakshya.ssn.lat/" target="_blank" rel="noopener noreferrer">More about Lakshya Club</a>
+                        <a className="hover:text-primary transition-colors" href="https://www.instagram.com/ssnlakshya/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a className="hover:text-primary transition-colors" href="#">Discord</a>
                     </div>
-                    <p className="text-sm text-slate-600">© 2024 SaaSathon. Build the future.</p>
+                    <p className="text-sm text-slate-600">© 2026 SaaSathon. Build the future.</p>
                 </div>
             </div>
         </footer>
