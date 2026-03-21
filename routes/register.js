@@ -38,36 +38,37 @@ router.post("/register-with-proof", upload.single("screenshot"), async (req, res
             return res.status(400).json({ success: false, error: "Team size must be between 2 and 4." });
         }
 
-        // 2. Upload to Cloudflare R2
-        const key = `payments/${transactionId}-${Date.now()}.png`;
-        await r2.send(
-            new PutObjectCommand({
-                Bucket: process.env.R2_BUCKET,
-                Key: key,
-                Body: file.buffer,
-                ContentType: file.mimetype
-            })
-        );
+        // 2. Upload to Cloudflare R2 (Bypassed for now)
+        // const key = `payments/${transactionId}-${Date.now()}.png`;
+        // await r2.send(
+        //     new PutObjectCommand({
+        //         Bucket: process.env.R2_BUCKET,
+        //         Key: key,
+        //         Body: file.buffer,
+        //         ContentType: file.mimetype
+        //     })
+        // );
 
-        const imageURL = `${process.env.R2_PUBLIC_URL}/${key}`;
+        // const imageURL = `${process.env.R2_PUBLIC_URL}/${key}`;
+        const imageURL = "https://placeholder.com/uploaded-image"; // Dummy URL for bypassing
 
-        // 3. Save to MongoDB
-        const registration = new Registration({
-            teamName,
-            leader: {
-                name: leaderData.name,
-                email: leaderData.email,
-                college: leaderData.college,
-                phone: leaderData.phone
-            },
-            members: membersData.map(m => ({ name: m.name, email: m.email })),
-            transactionId,
-            screenshot: imageURL
-        });
+        // 3. Save to MongoDB (Bypassed for now)
+        // const registration = new Registration({
+        //     teamName,
+        //     leader: {
+        //         name: leaderData.name,
+        //         email: leaderData.email,
+        //         college: leaderData.college,
+        //         phone: leaderData.phone
+        //     },
+        //     members: membersData.map(m => ({ name: m.name, email: m.email })),
+        //     transactionId,
+        //     screenshot: imageURL
+        // });
 
-        await registration.save();
+        // await registration.save();
 
-        console.log(`✅ Saved Team to DB: ${teamName} | Leader: ${leaderData.email}`);
+        console.log(`✅ [DEV BYPASS] Saved Team to DB: ${teamName} | Leader: ${leaderData.email}`);
 
         res.json({
             success: true,
@@ -94,7 +95,8 @@ router.post("/register-with-proof", upload.single("screenshot"), async (req, res
 // Admin Route (MongoDB Version)
 router.get("/admin/registrations", async (req, res) => {
     try {
-        const registrations = await Registration.find().sort({ createdAt: -1 });
+        // const registrations = await Registration.find().sort({ createdAt: -1 });
+        const registrations = []; // Bypassed for now
         res.json(registrations);
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });

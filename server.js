@@ -6,12 +6,23 @@ const rateLimit = require('express-rate-limit');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("✅ MongoDB Connected Successfully"))
-    .catch(err => console.error("❌ MongoDB Connection Error:", err));
+if (process.env.MONGO_URI) {
+    mongoose.connect(process.env.MONGO_URI)
+        .then(() => console.log("✅ MongoDB Connected Successfully"))
+        .catch(err => console.error("❌ MongoDB Connection Error:", err));
+} else {
+    console.warn("⚠️ MONGO_URI is not defined. Running without MongoDB connection.");
+}
 
 const registerRoutes = require('./routes/register');
+
+const transports = [];
+
+// Vercel sets the VERCEL env var automatically; disable file logs when on Vercel
+if (!process.env.VERCEL) {
+    transports.push(new winston.transports.File({ filename: 'logs/error.log', level: 'error' }));
+    transports.push(new winston.transports.File({ filename: 'logs/combined.log' }));
+}
 
 // Logger setup
 const logger = winston.createLogger({
@@ -20,10 +31,7 @@ const logger = winston.createLogger({
         winston.format.timestamp(),
         winston.format.json()
     ),
-    transports: [
-        new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
-        new winston.transports.File({ filename: 'logs/combined.log' }),
-    ],
+    transports: transports,
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -63,14 +71,20 @@ app.get('*', (req, res) => {
     res.sendFile(__dirname + '/frontend/dist/index.html');
 });
 
-const server = app.listen(port, () => {
-    logger.info(`Server is running on port ${port} in ${process.env.NODE_ENV || 'development'} mode`);
-});
-
-// Graceful Shutdown
-process.on('SIGTERM', () => {
-    logger.info('SIGTERM signal received: closing HTTP server');
-    server.close(() => {
-        logger.info('HTTP server closed');
+let server;
+// Only start the server locally. Vercel automatically maps exported app.
+if (!process.env.VERCEL) {
+    server = app.listen(port, () => {
+        logger.info(`Server is running on port ${port} in ${process.env.NODE_ENV || 'development'} mode`);
     });
-});
+
+    // Graceful Shutdown
+    process.on('SIGTERM', () => {
+        logger.info('SIGTERM signal received: closing HTTP server');
+        server.close(() => {
+            logger.info('HTTP server closed');
+        });
+    });
+}
+
+module.exports = app;

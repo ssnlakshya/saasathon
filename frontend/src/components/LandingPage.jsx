@@ -8,8 +8,7 @@ const LandingPage = () => {
     const [activeFaq, setActiveFaq] = useState(null);
 
     useEffect(() => {
-        const countdownDate = new Date();
-        countdownDate.setDate(countdownDate.getDate() + 30);
+        const countdownDate = new Date('2026-04-11T00:00:00');
 
         const timer = setInterval(() => {
             const now = new Date().getTime();
@@ -56,10 +55,11 @@ const LandingPage = () => {
                     <motion.h1
                         {...fadeInUp}
                         transition={{ delay: 0.2, duration: 0.8 }}
-                        className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50"
+                        className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] pb-4 mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50"
                     >
-                        SaaSathon — <span className="text-accent-blue">Build.</span> Launch. Sell.
+                        SaaSathon  <span className="text-accent-blue">Registrations</span> Opening Soon.
                     </motion.h1>
+
                     <motion.p
                         {...fadeInUp}
                         transition={{ delay: 0.4, duration: 0.8 }}
@@ -73,12 +73,12 @@ const LandingPage = () => {
                         transition={{ delay: 0.6, duration: 0.8 }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4"
                     >
-                        <Link to="/register" className="w-full sm:w-auto px-8 py-4 bg-primary text-background-dark font-bold rounded-xl text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/30 flex items-center justify-center">
-                            Apply to Participate
-                        </Link>
-                        <button className="w-full sm:w-auto px-8 py-4 glass-panel text-slate-100 font-bold rounded-xl text-lg hover:bg-white/10 transition-colors">
+                        <a href="#" className="w-full sm:w-auto px-8 py-4 bg-primary text-background-dark font-bold rounded-xl text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/30 flex items-center justify-center">
+                            Join Waitlist
+                        </a>
+                        {/* <button className="w-full sm:w-auto px-8 py-4 glass-panel text-slate-100 font-bold rounded-xl text-lg hover:bg-white/10 transition-colors">
                             View Rulebook
-                        </button>
+                        </button> */}
                     </motion.div>
                 </div>
             </section>
@@ -88,8 +88,8 @@ const LandingPage = () => {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                         <div className="text-center md:text-left">
-                            <h3 className="text-2xl font-bold text-white mb-2">Registration Closes In</h3>
-                            <p className="text-slate-400 font-medium">Secure your spot before the timer hits zero.</p>
+                            <h3 className="text-2xl font-bold text-white mb-2">The Ultimate Sprint Begins <span className="text-primary">April 11</span></h3>
+                            <p className="text-slate-400 font-medium">Clear your schedule. SaaSathon 2026 is almost here.</p>
                         </div>
                         <div className="flex gap-4 md:gap-8 justify-center">
                             {[
@@ -111,19 +111,31 @@ const LandingPage = () => {
             {/* Sponsors */}
             <section className="py-16 border-y border-white/5 bg-background-dark/50">
                 <div className="max-w-7xl mx-auto px-6">
-                    <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500 mb-10">Trusted & Supported by</p>
-                    <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale">
-                        {['LOGO 01', 'LOGO 02', 'LOGO 03', 'LOGO 04'].map((logo, i) => (
-                            <div key={i} className="h-8 w-32 bg-slate-400/20 rounded-md flex items-center justify-center text-sm font-bold">
-                                {logo}
-                            </div>
-                        ))}
+                    <h2 className="text-center text-3xl md:text-4xl font-black text-white mb-3 tracking-tight">Our Sponsors</h2>
+                    <p className="text-center text-sm font-bold uppercase tracking-[0.2em] text-primary mb-10">Platinum Sponsor</p>
+                    <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80 hover:opacity-100 transition-opacity">
+                        <a href="https://typesense.org/" target="_blank" rel="noopener noreferrer" className="h-16 px-10 bg-[#0c0c0c] border border-white/10 rounded-full flex items-center justify-center text-2xl hover:border-white/20 transition-all text-white shadow-2xl">
+                            <img src="/assets/typesense-logo.jpg" alt="Typesense Logo" className="h-8 w-auto mr-4 mix-blend-screen" />
+                            <span className="font-medium tracking-tight font-sans">type<span className="font-black">sense</span></span>
+                        </a>
+                    </div>
+
+                    <div className="mt-16 flex flex-col items-center justify-center text-center">
+                        <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6">Want to sponsor us ?</p>
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <a href="https://ssn.lat/Brochure" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 rounded-lg font-bold transition-colors">
+                                View Brochure
+                            </a>
+                            <a href="https://ssn.lat/Sponsorship" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 rounded-lg font-bold transition-colors">
+                                Become a Sponsor
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* About Section */}
-            <section className="py-24 relative" id="about">
+            {/* About Section (Commented Out for Coming Soon) *}
+            {/* <section className="py-24 relative" id="about">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <motion.div {...fadeInUp}>
@@ -163,10 +175,10 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Timeline Section */}
-            <section className="py-24 bg-white/[0.02]" id="timeline">
+            {/* <section className="py-24 bg-white/[0.02]" id="timeline">
                 <div className="max-w-4xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4">The 36-Hour Sprint</h2>
@@ -199,10 +211,10 @@ const LandingPage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Prize Pool */}
-            <section className="py-24 relative overflow-hidden" id="prizes">
+            {/* <section className="py-24 relative overflow-hidden" id="prizes">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,#ffae0020_0%,transparent_50%)]"></div>
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
                     <motion.div {...fadeInUp} className="glass-panel rounded-3xl p-12 text-center border-primary/20">
@@ -228,10 +240,10 @@ const LandingPage = () => {
                         </div>
                     </motion.div>
                 </div>
-            </section>
+            </section> */}
 
             {/* FAQ Section */}
-            <section className="py-24 bg-white/[0.02]" id="faq">
+            {/* <section className="py-24 bg-white/[0.02]" id="faq">
                 <div className="max-w-3xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
@@ -240,7 +252,7 @@ const LandingPage = () => {
                     <div className="space-y-4">
                         {[
                             { id: 1, q: "Who can participate?", a: "SaaSathon is open to students, developers, designers, and entrepreneurs. Whether you're a solo builder or part of a team (up to 4 members), you're welcome!" },
-                            { id: 2, q: "Is there a registration fee?", a: "Nope! Registration fee is ₹1000 per head. We also provide food, drinks, and stickers!" },
+                            { id: 2, q: "Is there a registration fee?", a: "A registration fee of ₹1000 per head is required. We also provide food and refreshments" },
                             { id: 3, q: "What if I don't have a team?", a: "No problem! We'll have a team-matching session at the beginning of the event to help you find like-minded builders." },
                         ].map((faq) => (
                             <div
@@ -296,10 +308,10 @@ const LandingPage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Final CTA */}
-            <section className="py-24 border-t border-white/5 relative overflow-hidden">
+            {/* <section className="py-24 border-t border-white/5 relative overflow-hidden">
                 <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 blur-[100px] rounded-full"></div>
                 <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                     <motion.h2 {...fadeInUp} className="text-5xl font-black mb-6">Ready to launch?</motion.h2>
@@ -313,7 +325,7 @@ const LandingPage = () => {
                     </motion.div>
                     <p className="mt-8 text-slate-500 text-sm font-medium">₹1000 per member. Pay once you join or form a team.</p>
                 </div>
-            </section>
+            </section> */}
         </main>
     );
 };
