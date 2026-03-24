@@ -19,7 +19,7 @@ const Navbar = () => {
                     <a className="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="/#faq">FAQ</a>
                 </nav> */}
                 <div className="flex items-center gap-4">
-                    <a href="#" className="bg-primary hover:bg-primary/90 text-background-dark px-5 py-2 rounded-lg font-bold text-sm transition-all shadow-lg shadow-primary/20">
+                    <a href="https://docs.google.com/forms/u/3/d/1AxfE-qm45U3bvxnWH6er-NjYM7cHx1aVAhmUOo_93F8/edit?usp=sharing_eil_se_dm&ts=69c2865d" className="bg-primary hover:bg-primary/90 text-background-dark px-5 py-2 rounded-lg font-bold text-sm transition-all shadow-lg shadow-primary/20">
                         Join Waitlist
                     </a>
                 </div>

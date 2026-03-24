@@ -69,11 +69,11 @@ const LandingPage = () => {
                         launch, and land your first customer in 36 hours.
                     </motion.p>
                     <motion.div
-                        {...fadeInUp}
+                        {...fadeInUp} 
                         transition={{ delay: 0.6, duration: 0.8 }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4"
                     >
-                        <a href="#" className="w-full sm:w-auto px-8 py-4 bg-primary text-background-dark font-bold rounded-xl text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/30 flex items-center justify-center">
+                        <a href="https://docs.google.com/forms/u/3/d/1AxfE-qm45U3bvxnWH6er-NjYM7cHx1aVAhmUOo_93F8/edit?usp=sharing_eil_se_dm&ts=69c2865d" className="w-full sm:w-auto px-8 py-4 bg-primary text-background-dark font-bold rounded-xl text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/30 flex items-center justify-center">
                             Join Waitlist
                         </a>
                         {/* <button className="w-full sm:w-auto px-8 py-4 glass-panel text-slate-100 font-bold rounded-xl text-lg hover:bg-white/10 transition-colors">
@@ -83,6 +83,7 @@ const LandingPage = () => {
                 </div>
             </section>
 
+            
             {/* Countdown Timer */}
             <section className="py-12 bg-primary/5 border-y border-primary/10">
                 <div className="max-w-7xl mx-auto px-6">
@@ -107,6 +108,63 @@ const LandingPage = () => {
                     </div>
                 </div>
             </section>
+
+            {/* About & Participation Section */}
+            <section className="py-24 relative bg-white/[0.02] border-t border-white/5" id="about-details">
+                <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+                    <motion.div {...fadeInUp} className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors"></div>
+                        <h3 className="text-3xl font-bold mb-6 tracking-tight text-white">What is <span className="text-primary">SaaSathon?</span></h3>
+                        <p className="text-slate-400 leading-relaxed text-lg">
+                            SaaSathon 2026 is India's first national-level Startup Launch Hackathon, where participants don't just build products — they build, launch, market, and sell them within 36 hours. Unlike traditional hackathons that end with a prototype, SaaSathon challenges teams to turn ideas into real revenue-generating software products.
+                        </p>
+                    </motion.div>
+
+                    <motion.div {...fadeInUp} transition={{ delay: 0.2, duration: 0.8 }} className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/10 rounded-full blur-3xl group-hover:bg-accent-blue/20 transition-colors"></div>
+                        <h3 className="text-3xl font-bold mb-6 tracking-tight text-white">Who can <span className="text-accent-blue">Participate?</span></h3>
+                        <p className="text-slate-400 leading-relaxed text-lg">
+                            SaaSathon is a fully open national event — there are no restrictions based on college, university, city, age, year of study, or professional background. Anyone from anywhere in India can register and compete.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+           
+
+            {/* Eligible Domains Section */}
+            <section className="py-24 relative border-t border-white/5 bg-background-dark" id="domains">
+                <div className="max-w-6xl mx-auto px-6 relative z-10">
+                    <motion.div {...fadeInUp} className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase tracking-tight text-white">Eligible <span className="text-primary">Domains</span></h2>
+                        <p className="text-slate-400 text-lg max-w-2xl mx-auto">Build across a wide range of software-focused categories. From Developer Tools to Sustainability Tech, choose your battlefield.</p>
+                    </motion.div>
+
+                    <motion.div {...fadeInUp} transition={{ delay: 0.2, duration: 0.8 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                        {[
+                            "SaaS & Cloud", "Developer Tools", "EdTech", "FinTech",
+                            "AI / ML Products", "HealthTech", "HRTech & Productivity", "LegalTech",
+                            "E-Commerce Tools", "MarketingTech", "Cybersecurity Tools", "AgriTech (SW)",
+                            "Data & Analytics", "No-Code / Low-Code", "Communication SaaS", "GovTech (SW)",
+                            "Gaming & Entertainment", "Creator Economy Tools", "Supply Chain (SW)", "Sustainability Tech"
+                        ].map((domain, i) => (
+                            <div key={i} className="glass-panel bg-white/[0.03] hover:bg-white/10 border border-white/10 hover:border-primary/40 rounded-xl p-6 flex items-center justify-center text-center transition-all duration-300 group shadow-lg shadow-black/20">
+                                <span className="font-bold text-slate-300 group-hover:text-white text-sm md:text-base">{domain}</span>
+                            </div>
+                        ))}
+                    </motion.div>
+
+                    <motion.div {...fadeInUp} transition={{ delay: 0.4, duration: 0.8 }} className="glass-panel p-6 md:p-8 rounded-2xl border border-accent-blue/20 bg-accent-blue/5 flex flex-col sm:flex-row gap-4 sm:items-start text-center sm:text-left">
+                        <div className="bg-accent-blue/10 p-3 rounded-xl inline-flex shrink-0 mx-auto sm:mx-0">
+                            <Lightbulb className="text-accent-blue w-6 h-6" />
+                        </div>
+                        <p className="text-slate-300 leading-relaxed text-base md:text-lg">
+                            <span className="font-bold text-white block mb-1">Free Domain Allowed:</span>
+                            Teams may build any software product that doesn't fit neatly into the above categories. All products must be software-first — web apps, mobile apps, browser extensions, APIs, CLI tools, or platforms.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
 
             {/* Team Composition and Registration Fees */}
             <section className="py-24 relative border-y border-white/5 bg-background-dark" id="fees">
@@ -183,60 +241,8 @@ const LandingPage = () => {
                 </div>
             </section>
 
-            {/* About & Participation Section */}
-            <section className="py-24 relative bg-white/[0.02] border-t border-white/5" id="about-details">
-                <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-                    <motion.div {...fadeInUp} className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors"></div>
-                        <h3 className="text-3xl font-bold mb-6 tracking-tight text-white">What is <span className="text-primary">SaaSathon?</span></h3>
-                        <p className="text-slate-400 leading-relaxed text-lg">
-                            SaaSathon 2026 is India's first national-level Startup Launch Hackathon, where participants don't just build products — they build, launch, market, and sell them within 36 hours. Unlike traditional hackathons that end with a prototype, SaaSathon challenges teams to turn ideas into real revenue-generating software products.
-                        </p>
-                    </motion.div>
-
-                    <motion.div {...fadeInUp} transition={{ delay: 0.2, duration: 0.8 }} className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/10 rounded-full blur-3xl group-hover:bg-accent-blue/20 transition-colors"></div>
-                        <h3 className="text-3xl font-bold mb-6 tracking-tight text-white">Who can <span className="text-accent-blue">Participate?</span></h3>
-                        <p className="text-slate-400 leading-relaxed text-lg">
-                            SaaSathon is a fully open national event — there are no restrictions based on college, university, city, age, year of study, or professional background. Anyone from anywhere in India can register and compete.
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Eligible Domains Section */}
-            <section className="py-24 relative border-t border-white/5 bg-background-dark" id="domains">
-                <div className="max-w-6xl mx-auto px-6 relative z-10">
-                    <motion.div {...fadeInUp} className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase tracking-tight text-white">Eligible <span className="text-primary">Domains</span></h2>
-                        <p className="text-slate-400 text-lg max-w-2xl mx-auto">Build across a wide range of software-focused categories. From Developer Tools to Sustainability Tech, choose your battlefield.</p>
-                    </motion.div>
-
-                    <motion.div {...fadeInUp} transition={{ delay: 0.2, duration: 0.8 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                        {[
-                            "SaaS & Cloud", "Developer Tools", "EdTech", "FinTech",
-                            "AI / ML Products", "HealthTech", "HRTech & Productivity", "LegalTech",
-                            "E-Commerce Tools", "MarketingTech", "Cybersecurity Tools", "AgriTech (SW)",
-                            "Data & Analytics", "No-Code / Low-Code", "Communication SaaS", "GovTech (SW)",
-                            "Gaming & Entertainment", "Creator Economy Tools", "Supply Chain (SW)", "Sustainability Tech"
-                        ].map((domain, i) => (
-                            <div key={i} className="glass-panel bg-white/[0.03] hover:bg-white/10 border border-white/10 hover:border-primary/40 rounded-xl p-6 flex items-center justify-center text-center transition-all duration-300 group shadow-lg shadow-black/20">
-                                <span className="font-bold text-slate-300 group-hover:text-white text-sm md:text-base">{domain}</span>
-                            </div>
-                        ))}
-                    </motion.div>
-
-                    <motion.div {...fadeInUp} transition={{ delay: 0.4, duration: 0.8 }} className="glass-panel p-6 md:p-8 rounded-2xl border border-accent-blue/20 bg-accent-blue/5 flex flex-col sm:flex-row gap-4 sm:items-start text-center sm:text-left">
-                        <div className="bg-accent-blue/10 p-3 rounded-xl inline-flex shrink-0 mx-auto sm:mx-0">
-                            <Lightbulb className="text-accent-blue w-6 h-6" />
-                        </div>
-                        <p className="text-slate-300 leading-relaxed text-base md:text-lg">
-                            <span className="font-bold text-white block mb-1">Free Domain Allowed:</span>
-                            Teams may build any software product that doesn't fit neatly into the above categories. All products must be software-first — web apps, mobile apps, browser extensions, APIs, CLI tools, or platforms.
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
+            
+            
 
             {/* Sponsors */}
             <section className="py-16 border-y border-white/5 bg-background-dark/50">
