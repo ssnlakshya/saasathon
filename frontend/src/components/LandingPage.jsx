@@ -57,7 +57,7 @@ const LandingPage = () => {
                         transition={{ delay: 0.2, duration: 0.8 }}
                         className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] pb-4 mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50"
                     >
-                        SaaSathon  <span className="text-accent-blue">Registrations</span> Opening Soon.
+                        SaaSathon  <span className="text-accent-blue">Registrations</span> Now Open.
                     </motion.h1>
 
                     <motion.p
@@ -73,12 +73,12 @@ const LandingPage = () => {
                         transition={{ delay: 0.6, duration: 0.8 }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4"
                     >
-                        <a href="https://docs.google.com/forms/u/3/d/1AxfE-qm45U3bvxnWH6er-NjYM7cHx1aVAhmUOo_93F8/edit?usp=sharing_eil_se_dm&ts=69c2865d" className="w-full sm:w-auto px-8 py-4 bg-primary text-background-dark font-bold rounded-xl text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/30 flex items-center justify-center">
-                            Join Waitlist
+                        <a href="https://forms.gle/e2Yy9vZfx7bTJCyT7" className="w-full sm:w-auto px-8 py-4 bg-primary text-background-dark font-bold rounded-xl text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/30 flex items-center justify-center">
+                            Register Now
                         </a>
-                        {/* <button className="w-full sm:w-auto px-8 py-4 glass-panel text-slate-100 font-bold rounded-xl text-lg hover:bg-white/10 transition-colors">
-                            View Rulebook
-                        </button> */}
+                        <button className="w-full sm:w-auto px-8 py-4 glass-panel text-slate-100 font-bold rounded-xl text-lg hover:bg-white/10 transition-colors" onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>
+                            Learn More
+                        </button>
                     </motion.div>
                 </div>
             </section>
@@ -259,7 +259,7 @@ const LandingPage = () => {
                     <div className="mt-16 flex flex-col items-center justify-center text-center">
                         <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6">Want to sponsor us ?</p>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <a href="https://ssn.lat/Brochure" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 rounded-lg font-bold transition-colors">
+                            <a href="https://ssn.lat/FinalBrochure" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 rounded-lg font-bold transition-colors">
                                 View Brochure
                             </a>
                             <a href="https://ssn.lat/Sponsorship" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 rounded-lg font-bold transition-colors">
@@ -270,8 +270,8 @@ const LandingPage = () => {
                 </div>
             </section>
 
-            {/* About Section (Commented Out for Coming Soon) *}
-            {/* <section className="py-24 relative" id="about">
+            {/* About Section */}
+            <section className="py-24 relative" id="about">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <motion.div {...fadeInUp}>
@@ -311,10 +311,10 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-            </section> */}
+            </section>
 
             {/* Timeline Section */}
-            {/* <section className="py-24 bg-white/[0.02]" id="timeline">
+            <section className="py-24 bg-white/[0.02]" id="timeline">
                 <div className="max-w-4xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4">The 36-Hour Sprint</h2>
@@ -347,10 +347,10 @@ const LandingPage = () => {
                         ))}
                     </div>
                 </div>
-            </section> */}
+            </section>
 
             {/* Prize Pool */}
-            {/* <section className="py-24 relative overflow-hidden" id="prizes">
+            <section className="py-24 relative overflow-hidden" id="prizes">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,#ffae0020_0%,transparent_50%)]"></div>
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
                     <motion.div {...fadeInUp} className="glass-panel rounded-3xl p-12 text-center border-primary/20">
@@ -376,10 +376,10 @@ const LandingPage = () => {
                         </div>
                     </motion.div>
                 </div>
-            </section> */}
+            </section>
 
             {/* FAQ Section */}
-            {/* <section className="py-24 bg-white/[0.02]" id="faq">
+            <section className="py-24 bg-white/[0.02]" id="faq">
                 <div className="max-w-3xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
@@ -388,7 +388,7 @@ const LandingPage = () => {
                     <div className="space-y-4">
                         {[
                             { id: 1, q: "Who can participate?", a: "SaaSathon is open to students, developers, designers, and entrepreneurs. Whether you're a solo builder or part of a team (up to 4 members), you're welcome!" },
-                            { id: 2, q: "Is there a registration fee?", a: "A registration fee of ₹1000 per head is required. We also provide food and refreshments" },
+                            { id: 2, q: "Is there a registration fee?", a: "A registration fee per team size is required (₹1000 - ₹3000 depending on members). We jugaad food and refreshments for everyone." },
                             { id: 3, q: "What if I don't have a team?", a: "No problem! We'll have a team-matching session at the beginning of the event to help you find like-minded builders." },
                         ].map((faq) => (
                             <div
@@ -444,24 +444,24 @@ const LandingPage = () => {
                         ))}
                     </div>
                 </div>
-            </section> */}
+            </section>
 
             {/* Final CTA */}
-            {/* <section className="py-24 border-t border-white/5 relative overflow-hidden">
+            <section className="py-24 border-t border-white/5 relative overflow-hidden">
                 <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 blur-[100px] rounded-full"></div>
                 <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                     <motion.h2 {...fadeInUp} className="text-5xl font-black mb-6">Ready to launch?</motion.h2>
                     <motion.p {...fadeInUp} transition={{ delay: 0.2 }} className="text-xl text-slate-400 mb-10 leading-relaxed">
-                        Applications close on October 15th. Limited slots available for the 2024 cohort.
+                        Applications are now live! Secure your spot for the 2026 cohort.
                     </motion.p>
                     <motion.div {...fadeInUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link to="/register" className="w-full sm:w-auto px-10 py-5 bg-primary text-background-dark font-black rounded-xl text-xl hover:scale-105 transition-transform shadow-2xl shadow-primary/40 flex items-center justify-center">
+                        <a href="https://forms.gle/e2Yy9vZfx7bTJCyT7" className="w-full sm:w-auto px-10 py-5 bg-primary text-background-dark font-black rounded-xl text-xl hover:scale-105 transition-transform shadow-2xl shadow-primary/40 flex items-center justify-center">
                             Secure Your Spot
-                        </Link>
+                        </a>
                     </motion.div>
-                    <p className="mt-8 text-slate-500 text-sm font-medium">₹1000 per member. Pay once you join or form a team.</p>
+                    <p className="mt-8 text-slate-500 text-sm font-medium">Registration fees vary by team size. Pay during physical registration.</p>
                 </div>
-            </section> */}
+            </section>
         </main>
     );
 };

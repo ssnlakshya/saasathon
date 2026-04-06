@@ -12,15 +12,15 @@ const Navbar = () => {
                     <div className="h-6 w-[3px] bg-slate-100 rounded-full mx-1 opacity-70"></div>
                     <span className="text-xl font-bold tracking-tight text-slate-100">SaaSathon</span>
                 </div>
-                {/* <nav className="hidden md:flex items-center gap-10">
+                <nav className="hidden md:flex items-center gap-10">
                     <a className="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="/#about">About</a>
                     <a className="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="/#timeline">Timeline</a>
                     <a className="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="/#prizes">Prizes</a>
                     <a className="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="/#faq">FAQ</a>
-                </nav> */}
+                </nav>
                 <div className="flex items-center gap-4">
-                    <a href="https://docs.google.com/forms/u/3/d/1AxfE-qm45U3bvxnWH6er-NjYM7cHx1aVAhmUOo_93F8/edit?usp=sharing_eil_se_dm&ts=69c2865d" className="bg-primary hover:bg-primary/90 text-background-dark px-5 py-2 rounded-lg font-bold text-sm transition-all shadow-lg shadow-primary/20">
-                        Join Waitlist
+                    <a href="https://forms.gle/e2Yy9vZfx7bTJCyT7" className="bg-primary hover:bg-primary/90 text-background-dark px-5 py-2 rounded-lg font-bold text-sm transition-all shadow-lg shadow-primary/20">
+                        Register Now
                     </a>
                 </div>
             </div>
