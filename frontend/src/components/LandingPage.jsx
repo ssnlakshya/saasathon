@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Rocket, BadgeCheck, BarChart, LogIn, Lightbulb, Code, Users, CreditCard, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 const LandingPage = () => {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [activeFaq, setActiveFaq] = useState(null);
+    const [animatedPrizePool, setAnimatedPrizePool] = useState(0);
+    const prizeSectionRef = useRef(null);
+    const hasAnimatedPrizePool = useRef(false);
 
     useEffect(() => {
         const countdownDate = new Date('2026-04-11T00:00:00');
@@ -25,6 +28,51 @@ const LandingPage = () => {
         return () => clearInterval(timer);
     }, []);
 
+    useEffect(() => {
+        if (!prizeSectionRef.current || hasAnimatedPrizePool.current) {
+            return;
+        }
+
+        const targetValue = 100000;
+        const duration = 1000;
+        let animationFrameId;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry.isIntersecting || hasAnimatedPrizePool.current) {
+                    return;
+                }
+
+                hasAnimatedPrizePool.current = true;
+                const startTime = performance.now();
+
+                const animate = (currentTime) => {
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    setAnimatedPrizePool(Math.floor(progress * targetValue));
+
+                    if (progress < 1) {
+                        animationFrameId = requestAnimationFrame(animate);
+                    } else {
+                        setAnimatedPrizePool(targetValue);
+                    }
+                };
+
+                animationFrameId = requestAnimationFrame(animate);
+                observer.disconnect();
+            },
+            { threshold: 0.35 }
+        );
+
+        observer.observe(prizeSectionRef.current);
+
+        return () => {
+            observer.disconnect();
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+        };
+    }, []);
+
     const toggleFaq = (id) => {
         setActiveFaq(activeFaq === id ? null : id);
     };
@@ -35,6 +83,8 @@ const LandingPage = () => {
         viewport: { once: true },
         transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
     };
+
+    const formattedPrizePool = new Intl.NumberFormat('en-IN').format(animatedPrizePool);
 
     return (
         <main className="pt-16">
@@ -350,13 +400,13 @@ const LandingPage = () => {
             </section>
 
             {/* Prize Pool */}
-            <section className="py-24 relative overflow-hidden" id="prizes">
+            <section className="py-24 relative overflow-hidden" id="prizes" ref={prizeSectionRef}>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,#ffae0020_0%,transparent_50%)]"></div>
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
                     <motion.div {...fadeInUp} className="glass-panel rounded-3xl p-12 text-center border-primary/20">
                         <h2 className="text-3xl font-bold text-slate-100 mb-4">The Prize Pool</h2>
                         <div className="text-7xl md:text-9xl font-black text-primary mb-6 tracking-tighter">
-                            ₹1,00,000
+                            ₹{formattedPrizePool}
                         </div>
                         <p className="text-xl text-slate-400 max-w-xl mx-auto mb-10">
                             In cash prizes, plus cloud credits, mentorship opportunities, and direct entry to accelerator programs.
