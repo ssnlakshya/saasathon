@@ -324,10 +324,10 @@ const LandingPage = () => {
                         <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-white/10 to-transparent"></div>
                         {[
                             { hour: '0 - 2', title: 'Grand Opening & Team Formation', desc: 'Keynote speech, team matching for solo participants, and theme reveal.', icon: LogIn },
-                            { hour: '2 - 6', title: 'Product Pitching & Brainstorming', desc: 'Validate your idea with mentors. Pivot early, pivot fast. Define your core SaaS value prop.', icon: Lightbulb },
-                            { hour: '6 - 24', title: 'The Build Sprint', desc: 'Heads down building. Focus on the \'SaaS\' essentials: Auth, Billing, and Core Logic.', icon: Code },
-                            { hour: '24 - 28', title: 'Expert Mentorship', desc: '1-on-1 sessions with SaaS founders and CTOs to polish your architecture and pitch.', icon: Users },
-                            { hour: '28 - 32', title: 'Sales Validation', desc: 'Unique phase: Reach out to potential users for feedback. Get a \'Pre-sign up\' or \'Letter of Intent\'.', icon: CreditCard },
+                            { hour: '2 - 4', title: 'Product Pitching & Brainstorming', desc: 'Validate your idea with mentors. Pivot early, pivot fast. Define your core SaaS value prop.', icon: Lightbulb },
+                            { hour: '4 - 12', title: 'The Build Sprint', desc: 'Heads down building. Focus on the \'SaaS\' essentials: Auth, Billing, and Core Logic.', icon: Code },
+                            { hour: '12 - 18', title: 'Expert Mentorship', desc: '1-on-1 sessions with SaaS founders and CTOs to polish your architecture and pitch.', icon: Users },
+                            { hour: '18 - 32', title: 'Sales Validation', desc: 'Unique phase: Reach out to potential users for feedback. Get a \'Pre-sign up\' or \'Letter of Intent\'.', icon: CreditCard },
                             { hour: '32 - 36', title: 'Final Demo & Pitching', desc: 'The grand finale. Pitch your SaaS to a panel of VCs and successful founders.', icon: Trophy },
                         ].map((step, i) => (
                             <motion.div

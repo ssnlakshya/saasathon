@@ -15,7 +15,7 @@ const Footer = () => {
                     <div className="flex flex-wrap gap-6 md:gap-8 text-sm text-slate-500">
                         <a className="hover:text-primary transition-colors" href="https://lakshya.ssn.lat/" target="_blank" rel="noopener noreferrer">More about Lakshya Club</a>
                         <a className="hover:text-primary transition-colors" href="https://www.instagram.com/ssnlakshya/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                        <a className="hover:text-primary transition-colors" href="#">Discord</a>
+                        <a className="hover:text-primary transition-colors" href="https://chat.whatsapp.com/FHySPjwzZuR84IFn3aTZTH" target="_blank" rel="noopener noreferrer">Whatsapp</a>
                     </div>
                     <p className="text-sm text-slate-600">© 2026 SaaSathon. Build the future.</p>
                 </div>
