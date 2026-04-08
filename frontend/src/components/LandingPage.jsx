@@ -363,9 +363,10 @@ const LandingPage = () => {
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                             {[
-                                { title: '1st Place', amount: '₹50,000', desc: 'Cash + Investor Meeting' },
-                                { title: '2nd Place', amount: '₹30,000', desc: 'Cash + Cloud Credits' },
-                                { title: 'Best UI/UX', amount: '₹20,000', desc: 'Cash + Design Tools' },
+                                { title: '1st Place', amount: '₹40,000', desc: 'Cash' },
+                                { title: '2nd Place', amount: '₹25,000', desc: 'Cash' },
+                                { title: 'Best UI/UX', amount: '₹10,000', desc: 'Cash' },
+                                { title: 'Best MicroSaaS', amount: '₹25,000', desc: 'Cash' },
                             ].map((prize, i) => (
                                 <div key={i} className="p-6 bg-white/5 rounded-xl border border-white/5 text-left">
                                     <span className="text-slate-500 text-xs font-bold uppercase mb-2 block">{prize.title}</span>
