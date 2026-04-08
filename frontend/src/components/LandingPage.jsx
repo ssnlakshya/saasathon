@@ -368,7 +368,12 @@ const LandingPage = () => {
                                 { title: 'Best UI/UX', amount: '₹10,000', desc: 'Cash' },
                                 { title: 'Best MicroSaaS', amount: '₹25,000', desc: 'Cash' },
                             ].map((prize, i) => (
-                                <div key={i} className="p-6 bg-white/5 rounded-xl border border-white/5 text-left">
+                                <div
+                                    key={i}
+                                    className={`p-6 bg-white/5 rounded-xl border border-white/5 ${
+                                        i === 3 ? 'md:col-span-3 md:max-w-md md:mx-auto text-center' : 'text-left'
+                                    }`}
+                                >
                                     <span className="text-slate-500 text-xs font-bold uppercase mb-2 block">{prize.title}</span>
                                     <div className="text-2xl font-bold text-white mb-1">{prize.amount}</div>
                                     <p className="text-sm text-slate-500">{prize.desc}</p>
