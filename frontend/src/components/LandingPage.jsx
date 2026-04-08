@@ -371,7 +371,7 @@ const LandingPage = () => {
                                 <div
                                     key={i}
                                     className={`p-6 bg-white/5 rounded-xl border border-white/5 ${
-                                        i === 3 ? 'md:col-span-3 md:max-w-md md:mx-auto text-center' : 'text-left'
+                                        i === 3 ? 'md:col-start-2' : 'text-left'
                                     }`}
                                 >
                                     <span className="text-slate-500 text-xs font-bold uppercase mb-2 block">{prize.title}</span>
