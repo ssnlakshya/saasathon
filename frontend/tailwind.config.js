@@ -1,3 +1,5 @@
+import { hex } from 'framer-motion';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -12,6 +14,8 @@ export default {
                 "background-light": "#f8f7f5",
                 "background-dark": "#0a0a0b",
                 "accent-blue": "#00d2ff",
+                "accent-red":"#FF0000",
+                "accent-orange":"#FFA500",
                 "accent-purple": "#9d50bb",
             },
             fontFamily: {

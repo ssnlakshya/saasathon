@@ -107,7 +107,7 @@ const LandingPage = () => {
                         transition={{ delay: 0.2, duration: 0.8 }}
                         className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] pb-4 mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50"
                     >
-                        SaaSathon  <span className="text-accent-blue">Registrations</span> Now Open.
+                        SaaSathon  <span className="text-accent-blue">Registrations</span> Closing <span>Today</span> <span className='text-accent-red'>8 PM</span>
                     </motion.h1>
 
                     <motion.p
@@ -300,9 +300,9 @@ const LandingPage = () => {
                     <h2 className="text-center text-3xl md:text-4xl font-black text-white mb-3 tracking-tight">Our Sponsors</h2>
                     <p className="text-center text-sm font-bold uppercase tracking-[0.2em] text-primary mb-10">Platinum Sponsor</p>
                     <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80 hover:opacity-100 transition-opacity">
-                        <a href="https://typesense.org/" target="_blank" rel="noopener noreferrer" className="h-16 px-10 bg-[#0c0c0c] border border-white/10 rounded-full flex items-center justify-center text-2xl hover:border-white/20 transition-all text-white shadow-2xl">
-                            <img src="/assets/typesense-logo.jpg" alt="Typesense Logo" className="h-8 w-auto mr-4 mix-blend-screen" />
-                            <span className="font-medium tracking-tight font-sans">type<span className="font-black">sense</span></span>
+                        <a href="https://typesense.org/" target="_blank" rel="noopener noreferrer" className="h-20 px-10 bg-[#0c0c0c] border border-white/10 rounded-full flex items-center justify-center text-2xl hover:border-white/20 transition-all text-white shadow-2xl">
+                            <img src="/assets/typesense-logo.jpg" alt="Typesense Logo" className="h-15 w-auto mr-4 mix-blend-screen" />
+                            <span className="font-medium text-4xl tracking-tight font-sans">type<span className="font-black">sense</span></span>
                         </a>
                     </div>
 
@@ -315,6 +315,25 @@ const LandingPage = () => {
                             <a href="https://ssn.lat/Sponsorship" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 rounded-lg font-bold transition-colors">
                                 Become a Sponsor
                             </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Community Partners */}
+            <section className="py-16 border-y border-white/5 bg-background-dark/50">
+                <div className="max-w-7xl mx-auto px-6">
+                    <h2 className="text-center text-3xl md:text-4xl font-black text-white mb-3 tracking-tight">Community Partners</h2>
+                        <div className="mt-16 flex flex-col items-center justify-center text-center">
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <div className="px-8 py-3 bg-white/10 text-slate-300 border border-white/10 hover:bg-white/20 rounded-lg font-bold transition-colors">
+                                <a href="https://www.chennaireact.in/socials"><img src="/assets/chennai-react.png" alt="ChennaiReact" className='h-50' /></a>
+                                <p className='text-accent-blue'>Chennai React.JS</p>
+                            </div>
+                            <div className="px-8 py-3 bg-white/10 text-primary border border-white/20 hover:bg-white/20 rounded-lg font-bold transition-colors">
+                                <a href="https://www.nammaflutter.in/"><img src="/assets/bird.jpg" alt="NammaFlutter" className='h-50' /></a>
+                                <p className='text-accent-blue'>Namma Flutter</p>
+                            </div>
                         </div>
                     </div>
                 </div>
