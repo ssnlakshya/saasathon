@@ -415,7 +415,7 @@ const LandingPage = () => {
                             {[
                                 { title: '1st Place', amount: '₹40,000', desc: 'Cash' },
                                 { title: '2nd Place', amount: '₹25,000', desc: 'Cash' },
-                                { title: 'Best UI/UX', amount: '₹10,000', desc: 'Cash' },
+                                { title: '3rd Place', amount: '₹10,000', desc: 'Cash' },
                                 { title: 'Best MicroSaaS', amount: '₹25,000', desc: 'Cash' },
                             ].map((prize, i) => (
                                 <div
