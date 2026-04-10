@@ -107,7 +107,7 @@ const LandingPage = () => {
                         transition={{ delay: 0.2, duration: 0.8 }}
                         className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] pb-4 mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50"
                     >
-                        SaaSathon  <span className="text-accent-blue">Registrations</span> Closing <span>Today</span> <span className='text-accent-red'>8 PM</span>
+                        SaaSathon  <span className="text-accent-blue">Registrations</span> Closed <p>Thank You For</p><span className='text-accent-blue'>100+</span> Participants
                     </motion.h1>
 
                     <motion.p
